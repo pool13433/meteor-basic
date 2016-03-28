@@ -15,30 +15,50 @@ if (Meteor.isServer) {
   Meteor.startup(function () {
     // code to run on server at startup
   });
-}
-MyCollection = new Mongo.Collection('myCollection');
-var myData = {
-	key1 : "value 1 ...",
-	key2 : "value 2 ...",
-	key3 : "value 3 ...",
-	key4 : "value 4 ...",
-	key5 : "value 5 ...",
-}
-MyCollection.insert(myData);
+	MyCollection = new Mongo.Collection('myCollection');
+/********************** insert *****************************/
+	var myData = {
+		key1 : "value 1 ...",
+		key2 : "value 2 ...",
+		key3 : "value 3 ...",
+		key4 : "value 4 ...",
+		key5 : "value 5 ...",
+	}
+	MyCollection.insert(myData);
+	
+	var findCollection = MyCollection.find().fetch();
+	//console.log(findCollection);
+	var myId = findCollection[0]._id;
 
-var findCollection = MyCollection.find().fetch();
-//console.log(findCollection);
-var myId = findCollection[0]._id;
 
-var updateData = {
-	key1 : "update value 1...",
-	key2 : "update value 2...",
-	key3 : "update value 3...",
-	key4 : "update value 4...",
-	key5 : "update value 5...",
+/************************ update *******************************/
+	/*var updateData = {
+		key1 : "update value 1...",
+		key2 : "update value 2...",
+		key3 : "update value 3...",
+		key4 : "update value 4...",
+		key5 : "update value 5...",
+	}		
+	MyCollection.update(myId,updateData);
+	var findUpdateCollection = MyCollection.find().fetch();
+	console.log(findUpdateCollection);*/
+
+
+/*********************** delete ********************************/
+	//MyCollection.remove(myId);
+	//var findDeleteCollection = MyCollection.find().fetch();
+	//console.log(findDeleteCollection);
+	
+	MyCollection.remove({key1 : "value 1 ..."});
+	var findDeleteCollection = MyCollection.find().fetch();
+	console.log(findDeleteCollection);
+	
 }
-MyCollection.update(myId,updateData);
-var findUpdateCollection = MyCollection.find().fetch();
-console.log(findUpdateCollection);
+
+
+
+
+
+
 
 
