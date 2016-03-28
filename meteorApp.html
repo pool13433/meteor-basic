@@ -1,0 +1,20 @@
+<head>
+  <title>meteorApp</title>
+</head>
+
+<body>
+ <!-- <h1>Welcome to Meteor!</h1>
+	  {{> myParagraph}}-->
+	<div>
+		{{#each paragraphs}}
+			{{> paragraph}}
+		{{/each}}
+	</div>
+</body>
+
+<!--<template name="myParagraph">
+	<h1>{{text}}</h1>
+</template>-->
+<template name="paragraph">
+	<p>{{text}}</p>
+</template>
